@@ -49,9 +49,17 @@
 
     ```bash
     chmod +x run.sh
-    sudo ./run.sh
+    ./run.sh
     ```
 
 3. **Access the application:**
    Open your web browser and go to `http://localhost:8080`.
 
+### Possible Errors
+
+If you encounter any errors, ensure that:
+
+- You have the correct Java version installed (and used).
+- MongoDB and Redis are running if you are not using Docker.
+- You have the necessary permissions to run Docker commands.
+- Delete the `target` directory and re-run the application if you face build issues.
