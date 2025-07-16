@@ -7,6 +7,8 @@ import com.alex.sw_task.repository.ServiceRepository;
 import com.alex.sw_task.repository.entity.ServiceEntity;
 import com.alex.sw_task.service.ServiceEntityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,14 +21,15 @@ public class ServiceEntityServiceImpl implements ServiceEntityService {
 	}
 
 	@Override
+	@Cacheable(value = "services", key = "#id")
 	public ServiceResponse getServiceById(String id) {
-		// TODO: Check the cache first
 		ServiceEntity serviceEntity = serviceRepository.findById(id)
 				.orElseThrow(() -> new ServiceNotFoundException("Service with id: " + id + " not found."));
 		return this.mapToResponse(serviceEntity);
 	}
 
 	@Override
+	@CachePut(value = "services", key = "#id")
 	public ServiceResponse updateService(String id, ServiceRequest serviceRequest) {
 		// Fetch the existing service by ID
 		ServiceEntity existingService = serviceRepository.findById(id).
@@ -42,13 +45,12 @@ public class ServiceEntityServiceImpl implements ServiceEntityService {
 	}
 
 	@Override
+	@CachePut(value = "services", key = "#result.id")
 	public ServiceResponse createService(ServiceRequest serviceRequest) {
 		ServiceEntity service = ServiceEntity.builder()
 				.id(serviceRequest.getId())
 				.resources(serviceRequest.getResources())
 				.build();
-
-		// TODO: Save to cache
 
 		// Save to MongoDB
 		ServiceEntity savedService = this.serviceRepository.save(service);
