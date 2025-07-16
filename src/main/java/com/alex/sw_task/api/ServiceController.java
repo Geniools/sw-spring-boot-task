@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/services")
+@CrossOrigin(maxAge = 3600)
 public class ServiceController {
 	private final ServiceEntityService serviceEntityService;
 
