@@ -48,7 +48,8 @@
    or run the `run.sh` script to install docker, package and run the application:
 
     ```bash
-    ./run.sh
+    chmod +x run.sh
+    sudo ./run.sh
     ```
 
 3. **Access the application:**
