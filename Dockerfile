@@ -1,4 +1,4 @@
-FROM openjdk:24
+FROM openjdk:21
 LABEL authors="Alex"
 
 # Set the working directory in the container

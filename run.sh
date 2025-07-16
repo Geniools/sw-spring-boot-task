@@ -18,20 +18,8 @@ sudo apt-get update
 
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-# Install Java OpenJDK 24
-## https://ubuntuhandbook.org/index.php/2025/03/install-openjdk-24-ubuntu/
-
-curl https://download.java.net/java/GA/jdk24.0.2/fdc5d0102fe0414db21410ad5834341f/12/GPL/openjdk-24.0.2_linux-x64_bin.tar.gz --output openjdk-24.tar.gz
-sudo mkdir -p /usr/lib/jvm
-sudo tar -zxf openjdk-24.tar.gz -C /usr/lib/jvm/
-
-sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk-24*/bin/java 1
-sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk-24*/bin/javac 1
-sudo update-alternatives --install /usr/bin/jar jar /usr/lib/jvm/jdk-24*/bin/jar 1
-
-sudo update-alternatives --config java
-sudo update-alternatives --config javac
-sudo update-alternatives --config jar
+## Install Java OpenJDK 21
+sudo apt install openjdk-21-jre-headless -y
 
 ## Install Maven
 sudo apt-get install maven -y

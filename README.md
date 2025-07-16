@@ -3,7 +3,7 @@
 ## Prerequisites
 
 - Git
-- Java 24
+- Java 21
 - Maven (or use the included `mvnw`)
 - Docker and Docker Compose
 
@@ -15,7 +15,7 @@
    cd sw-spring-boot-task
 
 2. **Run the application:**
-   Make sure you are using the correct Java version (Java 24). You can check your Java version with:
+   Make sure you are using the correct Java version (Java 21). You can check your Java version with:
     ```bash
     java -version
     ```
@@ -23,7 +23,7 @@
    installation.
 
     ```bash
-    export JAVA_HOME=/path/to/java24
+    export JAVA_HOME=/path/to/java21
     ```
 
    If you have Maven installed, run:
