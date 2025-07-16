@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class ResourceEntity {
 	private String id;
-	private List<OwnerEntity> ownerEntities;
+	private List<OwnerEntity> owners;
 }

@@ -7,5 +7,6 @@ import java.util.List;
 
 @Data
 public class ServiceRequest {
-	private List<ResourceEntity> resourceEntities;
+	private String id;
+	private List<ResourceEntity> resources;
 }

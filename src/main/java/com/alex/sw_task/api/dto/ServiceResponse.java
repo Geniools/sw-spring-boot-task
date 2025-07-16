@@ -10,5 +10,5 @@ import java.util.List;
 @Builder
 public class ServiceResponse {
 	private String id;
-	private List<ResourceEntity> resourceEntities;
+	private List<ResourceEntity> resources;
 }
